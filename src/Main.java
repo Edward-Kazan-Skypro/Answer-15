@@ -10,7 +10,7 @@ public class Main {
 
     //При вызове метода может возникнуть ошибка
     //Но здесь мы эту ошибку не обрабатываем
-    //А отдаем ее обработку в то место, которое вызывает данный метод
+    //А отдаем (перебрасываем) ее обработку в то место, которое вызывает данный метод
     static int inputNumber() throws NumberFormatException, IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         int number;
