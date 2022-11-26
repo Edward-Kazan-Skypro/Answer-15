@@ -8,9 +8,9 @@ public class Main {
         return number * number * number;
     }
 
-    //При вызове метода может возникнуть ошибка
-    //Но здесь мы эту ошибку не обрабатываем
-    //А отдаем (перебрасываем) ее обработку в то место, которое вызывает данный метод
+    //При вызове метода могут возникнуть ошибки - ввели не число или ошибка ввода (нельзя ввести символы с клавиатуры)
+    //Но здесь мы эти ошибки не обрабатываем
+    //А отдаем (перебрасываем) их обработку в то место, которое вызывает данный метод
     static int inputNumber() throws NumberFormatException, IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         int number;
@@ -26,6 +26,9 @@ public class Main {
             n = inputNumber();
         } catch (IOException | NumberFormatException e) {
             throw new RuntimeException("Ошибка ввода или введено не число, а текст");
+            //Если не выбрасывать исключение, что приведет к завершению работы программы,
+            //то можно вывести текстовое сообщение об ошибке, но число в куб не будет возведено.
+            //System.out.println("Ошибка ввода или введено не число, а текст");
         }
         System.out.println("Число " + n + " в кубе равно "  + inCube(n));
     }
